@@ -5,6 +5,8 @@ convertExcel("newList.xlsx", "newJSON.json");
 var newJSON = require("./newJSON.json");
 var _ = require("lodash");
 
+var ziaIDsOfLeaderErrors = [];
+var ziaIDsOfNCATSteamErrors = [];
 
 originalJSON.forEach(function(element, index) {
   if (element["ZIA ID Number"] && newJSON[index]) {
@@ -18,7 +20,8 @@ function doLeadersMatch(firstProject, secondProject) {
   if(firstProjectLeadsString && secondProjectLeadsString) {
     var firstLeadsArray = stringToArray(firstProjectLeadsString);
     var secondLeadsArray = stringToArray(secondProjectLeadsString);
-    createNCATSteamArray(firstLeadsArray);
+    // createNCATSteamArray(firstLeadsArray);
+    console.log(typeof firstLeadsArray);
   }
 }
 
@@ -26,7 +29,7 @@ function getLeader(project) {}
 
 function createNCATSteamArray(unfilteredArray) {
   unfilteredArray.forEach(function(element, index){
-    console.log(element);
+    console.log(element[index])
   });
 }
 
