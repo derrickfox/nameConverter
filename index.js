@@ -45,14 +45,21 @@ if(testProject['Lead Investigators']) {
   if(rawString[3]){
     preFormattedArray.push(rawString[3]);
   }
+  console.log('preFormattedArray', preFormattedArray);
+  console.log('preFormattedArray[2]', preFormattedArray[2]);
 
   for(var i = 0; i < preFormattedArray.length; i++){
     var regex = /([^\(]+)/;
     var tempString = preFormattedArray[i].match(regex);
     postFormattedArray.push(tempString[i]);
   }
+  var tempTemp = preFormattedArray[2].match(/([^\(]+)/);
+  console.log('tempTemp', tempTemp);
+  console.log('tempTemp[0]', tempTemp[0]);
 
+  console.log('postFormattedArray', postFormattedArray);
   for(var i = 0; i < postFormattedArray.length; i++){
+    console.log('postFormattedArray[i]', postFormattedArray[i]);
     var fullname = postFormattedArray[i];
     if(fullname){
       var fullNameArray = fullname.split(' ');
@@ -60,5 +67,5 @@ if(testProject['Lead Investigators']) {
       formatedNamesArray.push(fullFormattedName);
     }
   }
-  console.log(formatedNamesArray);
+  console.log('formatedNamesArray', formatedNamesArray);
 }
