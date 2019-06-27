@@ -59,7 +59,11 @@ function createNCATSteamArray(unfilteredStrings) {
       tempArray.push(element);
     }
   });
+  // ***************************************************!
+  // This suggests that 'tempArray' is an array.
   console.log(tempArray);
+  // This says that 'tempArray' is an object -> WTF?
+  console.log(typeof tempArray);
 }
 
 function stringToArray(string) {
