@@ -20,21 +20,30 @@ function doLeadersMatch(firstProject, secondProject) {
   if(firstProjectLeadsString && secondProjectLeadsString) {
     var firstLeadsArray = stringToArray(firstProjectLeadsString);
     var secondLeadsArray = stringToArray(secondProjectLeadsString);
-    // createNCATSteamArray(firstLeadsArray);
-    console.log(typeof firstLeadsArray);
+    createNCATSteamArray(firstLeadsArray);
   }
 }
 
 function getLeader(project) {}
 
-function createNCATSteamArray(unfilteredArray) {
-  unfilteredArray.forEach(function(element, index){
-    console.log(element[index])
+function createNCATSteamArray(unfilteredStrings) {
+  var tempArray = [];
+  unfilteredStrings.forEach(function(element, index){
+    if(index === 0){
+      tempArray.push(element);
+    }
+    if(index === 1){
+      tempArray.push(element);
+    }
+    if(index === 2){
+      tempArray.push(element);
+    }
   });
+  console.log(tempArray);
 }
 
 function stringToArray(string) {
-  var nameArray = string.split(" ");
+  var nameArray = string.split("(");
   return nameArray;
 }
 
