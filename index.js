@@ -5,6 +5,26 @@ convertExcel("newList.xlsx", "newJSON.json");
 var newJSON = require("./newJSON.json");
 var _ = require("lodash");
 
+////////////// Setup server so that variables can be inspected in the brower console instead of the IDE console for greater functionality
+const http = require('http')
+const port = 3000
+
+const requestHandler = (request, response) => {
+  console.log(request.url)
+  response.end('Hello Node.js Server!')
+}
+
+const server = http.createServer(requestHandler)
+
+server.listen(port, (err) => {
+  if (err) {
+    return console.log('something bad happened', err)
+  }
+
+  console.log(`server is listening on ${port}`)
+})
+/////////// End server creation ////////////
+
 var ziaIDsOfLeaderErrors = [];
 var ziaIDsOfNCATSteamErrors = [];
 
@@ -67,3 +87,4 @@ function format3Names(name) {}
 function format4Names(name) {}
 
 function format5Names(name) {}
+
