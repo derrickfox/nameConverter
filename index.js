@@ -5,38 +5,44 @@ convertExcel("newList.xlsx", "newJSON.json");
 var newJSON = require("./newJSON.json");
 var _ = require("lodash");
 
-var matchedZiaArray = [];
-var newZIAArrayIDs = [];
-var testArr = [1, 1, 1, 2, 2, 2, 3, 4, 5];
-
-// Match projects by their ZIA numbers
-// for (var oldIndex = 0; oldIndex < originalJSON.length; oldIndex++) {
-//   for (var newIndex = 0; newIndex < newJSON.length; newIndex++) {
-//     if (originalJSON[oldIndex]["ZIA ID Number"] === newJSON[newIndex]["ZIA ID Number"]) {
-//       // Add matched ZIA numbers to their arrays
-//       // Check if the ZIA is already a part of the array
-//       if(!_.includes(matchedZiaArray, (originalJSON[oldIndex]["ZIA ID Number"]))){
-//         matchedZiaArray.push(originalJSON[oldIndex]["ZIA ID Number"]);
-//       }
-
-//       // newZIAArrayIDs.push(newJSON[newIndex]["ZIA ID Number"]);
-//     }
-//   }
-// }
 
 originalJSON.forEach(function(element, index) {
   if (element["ZIA ID Number"] && newJSON[index]) {
-    doesLeaderMatch(element, newJSON[index]);
+    doLeadersMatch(element, newJSON[index]);
   }
 });
 
-function doTeamMembersMatch(firstProject, secondProject) {}
+function doLeadersMatch(firstProject, secondProject) {
+  var firstProjectLeadsString = firstProject['Lead Investigators'];
+  var secondProjectLeadsString = secondProject['Lead Investigators'];
+  if(firstProjectLeadsString && secondProjectLeadsString) {
+    var firstLeadsArray = stringToArray(firstProjectLeadsString);
+    var secondLeadsArray = stringToArray(secondProjectLeadsString);
+    createNCATSteamArray(firstLeadsArray);
+  }
+}
 
-function doesLeaderMatch(firstProject, secondProject) {
+function getLeader(project) {}
 
+function createNCATSteamArray(unfilteredArray) {
+  unfilteredArray.forEach(function(element, index){
+    console.log(element);
+  });
+}
+
+function stringToArray(string) {
+  var nameArray = string.split(" ");
+  return nameArray;
+}
+
+function getNCATSteamMembers(project) {}
+
+function findNumberofLeaders(projectLeadersArray) {
 }
 
 function findNumberOfWordsInName(name) {}
+
+function doTeamMembersMatch(firstProject, secondProject) {}
 
 function formatOneLine(singleLine) {}
 
