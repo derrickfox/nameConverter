@@ -42,8 +42,6 @@ if(testProject['Lead Investigators']) {
 
   for(var i = 0; i < preFormattedArray.length; i++){
     var tempString = preFormattedArray[i].match(/([^\(]+)/);
-    // console.log('tempString[0]', tempString[0]);
-    // console.log('tempString[i]', tempString[i]);
     postFormattedArray.push(tempString[0]);
   }
 
