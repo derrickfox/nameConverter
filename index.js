@@ -12,7 +12,8 @@ var testProject = {
   "NCATS Division": "",
   "2018 Project Status ": "Active",
   "2019 Project Status ": "",
-  "Lead Investigators": "Marc Ferrer-Alegre (DPCI, NCATS) \nJuan Marugan (DPCI, NCATS) \nNoel Southall (DPCI, NCATS) \n",
+  // "Lead Investigators": "Marc Ferrer-Alegre (DPCI, NCATS) \nJuan Marugan (DPCI, NCATS) \nNoel Southall (DPCI, NCATS) \n",
+  "Lead Investigators": "Yu-Shan Cheng (DPCI, NCATS)\nXin Hu, PhD (DPCI, NCATS)\nRuili Huang (DPCI, NCATS)\nWenwei Huang (DPCI, NCATS)\nMikhail Itkin (DPCI, NCATS)\nCarleen Klumpp (DPCI, NCATS)\nMadhu A Lal (DPCI, NCATS)\nBilly Lu (DPCI, NCATS)\nSamuel Gamal Michael (DPCI, NCATS)\nKhalida Shamim (DPCI, NCATS)\nNadejda V Slepushkina (DPCI, NCATS)\nSteven Titus (DPCI, NCATS)\nJennifer Wichterman (DPCI, NCATS)\nMiao Xu, MD, PhD (DPCI, NCATS)\nShu Yang, PhD (DPCI, NCATS)\n",
   "Supervisor of Record": "Anton Simeonov (DPCI, NCATS)\n",
   "NCATS Team Members": "Bolormaa Baljinnyam (DPCI, NCATS)\nMark James Henderson, PhD (DPCI, NCATS)\nSamarjit Patnaik (DPCI, NCATS)\n",
   "Intramural Collaborators (Affiliation)": "none indicated",
@@ -33,17 +34,10 @@ if(testProject['Lead Investigators']) {
   var postFormattedArray = [];
 
   rawString = rawString.split('\n');
-  if(rawString[0]){
-    preFormattedArray.push(rawString[0]);
-  }
-  if(rawString[1]){
-    preFormattedArray.push(rawString[1]);
-  }
-  if(rawString[2]){
-    preFormattedArray.push(rawString[2]);
-  }
-  if(rawString[3]){
-    preFormattedArray.push(rawString[3]);
+  for(var i = 0; i < rawString.length; i++){
+    if(rawString[i]){
+      preFormattedArray.push(rawString[i]);
+    }
   }
 
   for(var i = 0; i < preFormattedArray.length; i++){
