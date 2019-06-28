@@ -53,5 +53,18 @@ if(testProject['Lead Investigators']) {
       formatedNamesArray.push(fullFormattedName);
     }
   }
+
+  for(var i = 0; i < formatedNamesArray.length; i++){
+    // console.log('formatedNamesArray[i]', formatedNamesArray[i]);
+    for(var p = 0; p < formatedNamesArray[i].length; p++){
+      if(formatedNamesArray[i][p] === ','){
+        if(formatedNamesArray[i][p+1] === ',')
+        console.log('found! -> ', formatedNamesArray[i]);
+      }
+    }
+  }
+  var testString = 'Xu,, Miao';
+  var testResult = testString.match(/.+?(?=,,)/);
+  console.log('testResult', testResult);
 }
-console.log('formatedNamesArray', formatedNamesArray);
+// console.log('formatedNamesArray', formatedNamesArray);
