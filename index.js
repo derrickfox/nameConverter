@@ -68,14 +68,16 @@ if (testProject["Lead Investigators"]) {
           var tempArr = formatedNamesArray[word].split(",");
           var tempName = tempArr[2] + ', ' + tempArr[0];
           if(!_.includes(finalArray, tempName)){
+            tempName = tempName.trim();
             finalArray.push(tempName);
           }
         }
-      }else if(formatedNamesArray[word][letter + 1] !== ",") {
-        if(!_.includes(finalArray, formatedNamesArray[word])){
-          finalArray.push(formatedNamesArray[word]);
-        }
       }
+      // else if(formatedNamesArray[word][letter + 1] !== ",") {
+      //   if(!_.includes(finalArray, formatedNamesArray[word])){
+      //     finalArray.push(formatedNamesArray[word]);
+      //   }
+      // }
     }
   }
 }
