@@ -69,6 +69,42 @@ if (testProject["Lead Investigators"]) {
 }
 console.log("thisProjectLeadInvestigtors", thisProjectLeadInvestigtors);
 
+// Supervisor of Record
+var formatedSupervisorArray = [];
+if (testProject["Supervisor of Record"]) {
+  var rawSupervisorString = testProject["Supervisor of Record"];
+  var preFormattedSupervisorArray = [];
+  var postFormattedSupervisorArray = [];
+
+  rawSupervisorString = rawSupervisorString.split("\n");
+  rawSupervisorString.map(element => {
+    if (element) {
+      preFormattedSupervisorArray.push(element);
+    }
+  });
+
+  preFormattedSupervisorArray.map(element => {
+    var tempSupervisorString = element.match(/([^\(]+)/);
+    postFormattedSupervisorArray.push(tempSupervisorString[0]);
+  });
+
+  postFormattedSupervisorArray.map(element => {
+    var fullnameSupervisor = element;
+    if (fullnameSupervisor) {
+      var fullnameSupervisorArray = fullnameSupervisor.split(" ");
+      var fullFormattedSupervisorName = fullnameSupervisorArray[1] + ", " + fullnameSupervisorArray[0];
+      formatedSupervisorArray.push(fullFormattedSupervisorName);
+    }
+  });
+
+  var thisProjectSupervisor = [];
+  formatedSupervisorArray.map(name => {
+    var stuff = name.replace(',,', ',');
+    thisProjectSupervisor.push(stuff);
+  });
+}
+console.log("thisProjectSupervisor", thisProjectSupervisor);
+
 // NCATS Team Members
 var formatedTeamMembersArray = [];
 if (testProject["NCATS Team Members"]) {
