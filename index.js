@@ -140,3 +140,39 @@ if (testProject["NCATS Team Members"]) {
   });
 }
 console.log("thisProjectTeamMembers", thisProjectTeamMembers);
+
+// Intramural Collaborators (Affiliation)
+var formatedIntCollbsArray = [];
+if (testProject["Intramural Collaborators (Affiliation)"]) {
+  var rawIntCollbsString = testProject["Intramural Collaborators (Affiliation)"];
+  var preFormattedIntCollbsArray = [];
+  var postFormattedIntCollbsArray = [];
+
+  rawIntCollbsString = rawIntCollbsString.split("\n");
+  rawIntCollbsString.map(element => {
+    if (element) {
+      preFormattedIntCollbsArray.push(element);
+    }
+  });
+
+  preFormattedIntCollbsArray.map(element => {
+    var tempIntCollbsString = element.match(/([^\(]+)/);
+    postFormattedIntCollbsArray.push(tempIntCollbsString[0]);
+  });
+
+  postFormattedIntCollbsArray.map(element => {
+    var fullnameIntCollbs = element;
+    if (fullnameIntCollbs) {
+      var fullnameIntCollbsArray = fullnameIntCollbs.split(" ");
+      var fullFormattedIntCollbsName = fullnameIntCollbsArray[1] + ", " + fullnameIntCollbsArray[0];
+      formatedIntCollbsArray.push(fullFormattedIntCollbsName);
+    }
+  });
+
+  var thisProjectIntCollbs = [];
+  formatedIntCollbsArray.map(name => {
+    var stuff = name.replace(',,', ',');
+    thisProjectIntCollbs.push(stuff);
+  });
+}
+console.log("thisProjectIntCollbs", thisProjectIntCollbs);
