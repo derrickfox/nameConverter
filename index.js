@@ -63,17 +63,8 @@ if (testProject["Lead Investigators"]) {
 
   var finalArray = [];
   formatedNamesArray.map(name => {
-    for (var letter = 0; letter < formatedNamesArray.length; letter++) {
-      if (name[letter] === "," && name[letter + 1] === ",") {
-        var tempArr = name.split(",");
-        var tempName = tempArr[2] + ', ' + tempArr[0];
-        if (!_.includes(finalArray, tempName)){
-          tempName = tempName.trim();
-          finalArray.push(tempName);
-        }
-      }
-    }
+    var stuff = name.replace(',,', ',');
+    finalArray.push(stuff);
   });
 }
-
 console.log("finalArray", finalArray);
