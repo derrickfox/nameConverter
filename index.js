@@ -34,7 +34,7 @@ var testProject = {
 };
 
 // Lead Investigators
-var formatedLeadInvestigatorsArray = [];
+var formatedTeamMembersArray = [];
 if (testProject["Lead Investigators"]) {
   var rawLeadInvestigatorsString = testProject["Lead Investigators"];
   var preFormattedLeadInvestigatorsArray = [];
@@ -57,14 +57,50 @@ if (testProject["Lead Investigators"]) {
     if (fullnameLeadInvestigator) {
       var fullnameLeadInvestigatorArray = fullnameLeadInvestigator.split(" ");
       var fullFormattedLeadInvestigatorName = fullnameLeadInvestigatorArray[1] + ", " + fullnameLeadInvestigatorArray[0];
-      formatedLeadInvestigatorsArray.push(fullFormattedLeadInvestigatorName);
+      formatedTeamMembersArray.push(fullFormattedLeadInvestigatorName);
     }
   });
 
   var thisProjectLeadInvestigtors = [];
-  formatedLeadInvestigatorsArray.map(name => {
+  formatedTeamMembersArray.map(name => {
     var stuff = name.replace(',,', ',');
     thisProjectLeadInvestigtors.push(stuff);
   });
 }
 console.log("thisProjectLeadInvestigtors", thisProjectLeadInvestigtors);
+
+// NCATS Team Members
+var formatedTeamMembersArray = [];
+if (testProject["NCATS Team Members"]) {
+  var rawTeamMembersString = testProject["NCATS Team Members"];
+  var preFormattedTeamMembersArray = [];
+  var postFormattedTeamMembersArray = [];
+
+  rawTeamMembersString = rawTeamMembersString.split("\n");
+  rawTeamMembersString.map(element => {
+    if (element) {
+      preFormattedTeamMembersArray.push(element);
+    }
+  });
+
+  preFormattedTeamMembersArray.map(element => {
+    var tempTeamMembersString = element.match(/([^\(]+)/);
+    postFormattedTeamMembersArray.push(tempTeamMembersString[0]);
+  });
+
+  postFormattedTeamMembersArray.map(element => {
+    var fullnameTeamMember = element;
+    if (fullnameTeamMember) {
+      var fullnameTeamMembersArray = fullnameTeamMember.split(" ");
+      var fullFormattedTeamMembersName = fullnameTeamMembersArray[1] + ", " + fullnameTeamMembersArray[0];
+      formatedTeamMembersArray.push(fullFormattedTeamMembersName);
+    }
+  });
+
+  var thisProjectTeamMembers = [];
+  formatedTeamMembersArray.map(name => {
+    var stuff = name.replace(',,', ',');
+    thisProjectTeamMembers.push(stuff);
+  });
+}
+console.log("thisProjectTeamMembers", thisProjectTeamMembers);
