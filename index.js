@@ -176,3 +176,47 @@ if (testProject["Intramural Collaborators (Affiliation)"]) {
   });
 }
 console.log("thisProjectIntCollbs", thisProjectIntCollbs);
+
+// Report Title
+var thisProjectReportTitle = testProject["Report Title"];
+console.log('thisProjectReportTitle -> ', thisProjectReportTitle);
+
+// NIH Project ID
+var thisProjectNIHProjectID = testProject["NIH Project ID"];
+console.log('thisProjectNIHProjectID -> ', thisProjectNIHProjectID);
+
+// ZIA ID Number
+var thisProjectZIAidNumber = testProject["ZIA ID Number"];
+console.log('thisProjectZIAidNumber -> ', thisProjectZIAidNumber);
+
+// NCATS Division
+var thisProjectNCATSdivision = testProject["NCATS Division"];
+console.log('thisProjectNCATSdivision -> ', thisProjectNCATSdivision);
+
+// 2018 Project Status 
+var thisProjects2018ProjectStatus = testProject["2018 Project Status "];
+console.log('thisProjects2018ProjectStatus -> ', thisProjects2018ProjectStatus);
+
+// 2019 Project Status 
+var thisProjects2019ProjectStatus = testProject["2019 Project Status "];
+console.log('thisProjects2019ProjectStatus -> ', thisProjects2019ProjectStatus);
+
+// Does project use human cells, human subjects or human tissues?
+var thisProjectsHumanCells = testProject["Does project use human cells, human subjects or human tissues?"];
+console.log('thisProjectsHumanCells -> ', thisProjectsHumanCells);
+
+// Keywords
+var thisProjectsKeywords = testProject["Keywords"];
+console.log('thisProjectsKeywords -> ', thisProjectsKeywords);
+
+// Distinguishing Keyword
+var thisProjectsDistinguishingKeyword = testProject["Distinguishing Keyword"];
+console.log('thisProjectsDistinguishingKeyword -> ', thisProjectsDistinguishingKeyword);
+
+// Goals and Objectives
+var thisProjectsGoalsAndObjectives = testProject["Goals and Objectives"];
+console.log('thisProjectsGoalsAndObjectives -> ', thisProjectsGoalsAndObjectives);
+
+// Summary
+var thisProjectsSummary = testProject["Summary"];
+console.log('thisProjectsSummary -> ', thisProjectsSummary);
