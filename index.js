@@ -33,38 +33,38 @@ var testProject = {
     "1. Al-Ramahi I, Panapakkam Giridharan SS, Chen YC, Patnaik S, Safren N, Hasegawa J, de Haro M, Wagner Gee AK, Titus SA, Jeong H, Clarke J, Krainc D, Zheng W, Irvine RF, Barmada S, Ferrer M, Southall N, Weisman LS, Botas J, Marugan JJ (2017). Inhibition of PIP4Kγ ameliorates the pathological effects of mutant huntingtin protein. Elife 6. https://doi.org/10.7554/eLife.29123"
 };
 
-var formatedNamesArray = [];
-
+// Lead Investigators
+var formatedLeadInvestigatorsArray = [];
 if (testProject["Lead Investigators"]) {
-  var rawString = testProject["Lead Investigators"];
-  var preFormattedArray = [];
-  var postFormattedArray = [];
+  var rawLeadInvestigatorsString = testProject["Lead Investigators"];
+  var preFormattedLeadInvestigatorsArray = [];
+  var postFormattedLeadInvestigatorsArray = [];
 
-  rawString = rawString.split("\n");
-  rawString.map(element => {
+  rawLeadInvestigatorsString = rawLeadInvestigatorsString.split("\n");
+  rawLeadInvestigatorsString.map(element => {
     if (element) {
-      preFormattedArray.push(element);
+      preFormattedLeadInvestigatorsArray.push(element);
     }
   });
 
-  preFormattedArray.map(element => {
-    var tempString = element.match(/([^\(]+)/);
-    postFormattedArray.push(tempString[0]);
+  preFormattedLeadInvestigatorsArray.map(element => {
+    var tempLeadInvestigatorString = element.match(/([^\(]+)/);
+    postFormattedLeadInvestigatorsArray.push(tempLeadInvestigatorString[0]);
   });
 
-  postFormattedArray.map(element => {
-    var fullname = element;
-    if (fullname) {
-      var fullNameArray = fullname.split(" ");
-      var fullFormattedName = fullNameArray[1] + ", " + fullNameArray[0];
-      formatedNamesArray.push(fullFormattedName);
+  postFormattedLeadInvestigatorsArray.map(element => {
+    var fullnameLeadInvestigator = element;
+    if (fullnameLeadInvestigator) {
+      var fullnameLeadInvestigatorArray = fullnameLeadInvestigator.split(" ");
+      var fullFormattedLeadInvestigatorName = fullnameLeadInvestigatorArray[1] + ", " + fullnameLeadInvestigatorArray[0];
+      formatedLeadInvestigatorsArray.push(fullFormattedLeadInvestigatorName);
     }
   });
 
-  var finalArray = [];
-  formatedNamesArray.map(name => {
+  var thisProjectLeadInvestigtors = [];
+  formatedLeadInvestigatorsArray.map(name => {
     var stuff = name.replace(',,', ',');
-    finalArray.push(stuff);
+    thisProjectLeadInvestigtors.push(stuff);
   });
 }
-console.log("finalArray", finalArray);
+console.log("thisProjectLeadInvestigtors", thisProjectLeadInvestigtors);
