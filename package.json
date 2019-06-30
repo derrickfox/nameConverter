@@ -10,6 +10,7 @@
   "license": "ISC",
   "devDependencies": {
     "excel-as-json": "^2.0.2",
+    "fs": "0.0.1-security",
     "lodash": "^4.17.11",
     "xmlhttprequest": "^1.8.0"
   }

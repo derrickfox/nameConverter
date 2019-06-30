@@ -248,3 +248,9 @@ for (var i = 0; i < originalJSON.length; i++) {
   formatedJSONresult.push(formatedProject);
 }
 console.log('formatedJSONresult -> ', formatedJSONresult);
+var superString = JSON.stringify(formatedJSONresult);
+var fs = require('fs');
+// fs.writeFile("thing.json", superString);
+fs.writeFile('thing.json', superString, function(err, result) {
+  if(err) console.log('error', err);
+});
