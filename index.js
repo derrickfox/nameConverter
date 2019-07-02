@@ -88,9 +88,15 @@ for (var i = 0; i < originalJSON.length; i++) {
     // console.log("thisProjectSupervisor", thisProjectSupervisor);
 
     // NCATS Team Members
+    var testString =
+      "Catherine Chen, PhD (DPCI, NCATS)\nWenwei Huang (DPCI, NCATS)\nJian-Kang Jiang, BS, PhD (DPCI, NCATS)\nHaksong M Jin (DPCI, NCATS)\nGregory James Tawa (DPCI, NCATS)\nPramod S Terse (DPCI, NCATS)\nAmy Qiu Wang, PhD (DPCI, NCATS)\nXin Xu (DPCI, NCATS)\nWei Zheng, MB, PhD (DPCI, NCATS)\n";
     var formatedTeamMembersArray = [];
-    if (testProject["NCATS Team Members"]) {
-      var rawTeamMembersString = testProject["NCATS Team Members"];
+
+    // if (testProject["NCATS Team Members"]) {
+    //   var rawTeamMembersString = testProject["NCATS Team Members"];
+    if (testString) {
+      var rawTeamMembersString = testString;
+
       var preFormattedTeamMembersArray = [];
       var postFormattedTeamMembersArray = [];
 
@@ -101,10 +107,29 @@ for (var i = 0; i < originalJSON.length; i++) {
         }
       });
 
+      // console.log('preFormattedTeamMembersArray', preFormattedTeamMembersArray);
       preFormattedTeamMembersArray.map(element => {
         var tempTeamMembersString = element.match(/([^\(]+)/);
-        postFormattedTeamMembersArray.push(tempTeamMembersString[0]);
+        tempTeamMembersString[0] = tempTeamMembersString[0].split(",");
+        tempTeamMembersString[0] = tempTeamMembersString[0][0].split(" ");
+        switch (tempTeamMembersString[0].length) {
+          case 2:
+            console.log("two");
+            break;
+          case 3:
+            console.log("three");
+            break;
+          case 4:
+            console.log("four");
+            break;
+          default:
+            console.log("other");
+        }
+        console.log("tempTeamMembersString[0]", tempTeamMembersString[0]);
+
+        // postFormattedTeamMembersArray.push(tempTeamMembersString[0]);
       });
+      // console.log('postFormattedTeamMembersArray', postFormattedTeamMembersArray);
 
       postFormattedTeamMembersArray.map(element => {
         var fullnameTeamMember = element;
@@ -163,7 +188,8 @@ for (var i = 0; i < originalJSON.length; i++) {
     // console.log("thisProjectIntCollbs", thisProjectIntCollbs);
 
     // Extramural Collaborators (Affiliation)
-    var thisProjectExtCollbs = testProject["Extramural Collaborators (Affiliation)"];
+    var thisProjectExtCollbs =
+      testProject["Extramural Collaborators (Affiliation)"];
     // console.log("thisProjectExtCollbs -> ", thisProjectExtCollbs);
 
     // Report Title
@@ -239,18 +265,18 @@ for (var i = 0; i < originalJSON.length; i++) {
     "Intramural Collaborators (Affiliation)": thisProjectIntCollbs,
     "Extramural Collaborators (Affiliation)": thisProjectExtCollbs,
     "Does project use human cells, human subjects or human tissues?": thisProjectsHumanCells,
-    "Keywords": thisProjectsKeywords,
+    Keywords: thisProjectsKeywords,
     "Distinguishing Keyword": thisProjectsDistinguishingKeyword,
     "Goals and Objectives": thisProjectsGoalsAndObjectives,
-    "Summary": thisProjectsSummary
-  }
+    Summary: thisProjectsSummary
+  };
   // console.log('formatedProject -> ', formatedProject);
   formatedJSONresult.push(formatedProject);
 }
-console.log('formatedJSONresult -> ', formatedJSONresult);
+// console.log('formatedJSONresult -> ', formatedJSONresult);
 var superString = JSON.stringify(formatedJSONresult);
-var fs = require('fs');
+var fs = require("fs");
 // fs.writeFile("thing.json", superString);
-fs.writeFile('thing.json', superString, function(err, result) {
-  if(err) console.log('error', err);
+fs.writeFile("thing.json", superString, function(err, result) {
+  if (err) console.log("error", err);
 });
