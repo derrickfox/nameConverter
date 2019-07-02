@@ -16,6 +16,15 @@ function addItems() {
       var itemCreateInfo = new SP.ListItemCreationInformation();
       var spItem = list.addItem(itemCreateInfo);
       spItem.set_item("ReportTitle", json["Report Title"]);
+      spItem.set_item("ReportTitle", json["Report Title"]);
+      spItem.set_item("ReportTitle", json["Report Title"]);
+      spItem.set_item("ReportTitle", json["Report Title"]);
+      spItem.set_item("ReportTitle", json["Report Title"]);
+      spItem.set_item("ReportTitle", json["Report Title"]);
+      spItem.set_item("ReportTitle", json["Report Title"]);
+      spItem.set_item("ReportTitle", json["Report Title"]);
+      spItem.set_item("ReportTitle", json["Report Title"]);
+      spItem.set_item("ReportTitle", json["Report Title"]);
       spItem.update();
       cctx.load(spItem);
 

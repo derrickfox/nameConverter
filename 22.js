@@ -1,4 +1,4 @@
-function clearList() {
+function addItems() {
     var cctx = SP.ClientContext.get_current()
     var web = cctx.get_web();
     var lists = web.get_lists()
@@ -32,4 +32,4 @@ function clearList() {
     }
     cctx.executeQueryAsync(bigSuccess);
 }
-clearList();
+addItems();

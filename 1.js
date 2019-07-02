@@ -7,6 +7,7 @@ function add(json) {
     var itemCreateInfo = new SP.ListItemCreationInformation();
     var spItem = list.addItem(itemCreateInfo);
     spItem.set_item('Title', json['Report Title']);
+    spItem.set_item('Tempq', json['']);
     spItem.update();
     ctx.load(spItem);
 }
