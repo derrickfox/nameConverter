@@ -111,23 +111,20 @@ for (var i = 0; i < originalJSON.length; i++) {
       preFormattedTeamMembersArray.map(element => {
         var tempTeamMembersString = element.match(/([^\(]+)/);
         tempTeamMembersString[0] = tempTeamMembersString[0].split(",");
-        tempTeamMembersString[0] = tempTeamMembersString[0][0].split(" ");
-        switch (tempTeamMembersString[0].length) {
+        var tempString = tempTeamMembersString[0][0].split(" ");
+        switch (tempString.length) {
           case 2:
-            console.log("two");
+            postFormattedTeamMembersArray.push(tempString[1] + ', ' + tempString[0]);
             break;
           case 3:
-            console.log("three");
+            postFormattedTeamMembersArray.push(tempString[1] + ', ' + tempString[0]);
             break;
           case 4:
-            console.log("four");
+            postFormattedTeamMembersArray.push(tempString[2] + ', ' + tempString[0]);
             break;
           default:
             console.log("other");
         }
-        console.log("tempTeamMembersString[0]", tempTeamMembersString[0]);
-
-        // postFormattedTeamMembersArray.push(tempTeamMembersString[0]);
       });
       // console.log('postFormattedTeamMembersArray', postFormattedTeamMembersArray);
 
