@@ -92,10 +92,9 @@ for (var i = 0; i < originalJSON.length; i++) {
       "Catherine Chen, PhD (DPCI, NCATS)\nWenwei Huang (DPCI, NCATS)\nJian-Kang Jiang, BS, PhD (DPCI, NCATS)\nHaksong M Jin (DPCI, NCATS)\nGregory James Tawa (DPCI, NCATS)\nPramod S Terse (DPCI, NCATS)\nAmy Qiu Wang, PhD (DPCI, NCATS)\nXin Xu (DPCI, NCATS)\nWei Zheng, MB, PhD (DPCI, NCATS)\n";
     var formatedTeamMembersArray = [];
 
-    // if (testProject["NCATS Team Members"]) {
-    //   var rawTeamMembersString = testProject["NCATS Team Members"];
-    if (testString) {
-      var rawTeamMembersString = testString;
+    if (testProject["NCATS Team Members"]) {
+      var rawTeamMembersString = testProject["NCATS Team Members"];
+      // var rawTeamMembersString = testString;
 
       var preFormattedTeamMembersArray = [];
       var postFormattedTeamMembersArray = [];
@@ -114,37 +113,53 @@ for (var i = 0; i < originalJSON.length; i++) {
         var tempString = tempTeamMembersString[0][0].split(" ");
         switch (tempString.length) {
           case 2:
-            postFormattedTeamMembersArray.push(tempString[1] + ', ' + tempString[0]);
+            // console.log('2 -> ', tempString[1] + ", " + tempString[0]);
+            postFormattedTeamMembersArray.push(
+              tempString[1] + ", " + tempString[0]
+            );
             break;
           case 3:
-            postFormattedTeamMembersArray.push(tempString[1] + ', ' + tempString[0]);
+            // console.log('3 -> ', tempString[1] + ", " + tempString[0]);
+            postFormattedTeamMembersArray.push(
+              tempString[1] + ", " + tempString[0]
+            );
             break;
           case 4:
-            postFormattedTeamMembersArray.push(tempString[2] + ', ' + tempString[0]);
+            // console.log('4 -> ', tempString[2] + ", " + tempString[0]);
+            postFormattedTeamMembersArray.push(
+              tempString[2] + ", " + tempString[0]
+            );
+            break;
+          case 5:
+            // console.log('5 -> ', tempString[3] + ", " + tempString[0]);
+            postFormattedTeamMembersArray.push(
+              tempString[3] + ", " + tempString[0]
+            );
             break;
           default:
-            console.log("other");
+            console.log("other", tempString);
         }
       });
       // console.log('postFormattedTeamMembersArray', postFormattedTeamMembersArray);
 
-      postFormattedTeamMembersArray.map(element => {
-        var fullnameTeamMember = element;
-        if (fullnameTeamMember) {
-          var fullnameTeamMembersArray = fullnameTeamMember.split(" ");
-          var fullFormattedTeamMembersName =
-            fullnameTeamMembersArray[1] + ", " + fullnameTeamMembersArray[0];
-          formatedTeamMembersArray.push(fullFormattedTeamMembersName);
-        }
-      });
+      // postFormattedTeamMembersArray.map(element => {
+      //   var fullnameTeamMember = element;
+      //   if (fullnameTeamMember) {
+      //     var fullnameTeamMembersArray = fullnameTeamMember.split(" ");
+      //     var fullFormattedTeamMembersName =
+      //       fullnameTeamMembersArray[1] + ", " + fullnameTeamMembersArray[0];
+      //     formatedTeamMembersArray.push(fullFormattedTeamMembersName);
+      //   }
+      // });
 
       var thisProjectTeamMembers = [];
-      formatedTeamMembersArray.map(name => {
-        var stuff = name.replace(",,", ",");
-        thisProjectTeamMembers.push(stuff);
-      });
+      thisProjectTeamMembers = postFormattedTeamMembersArray;
+      // formatedTeamMembersArray.map(name => {
+      //   var stuff = name.replace(",,", ",");
+      //   thisProjectTeamMembers.push(stuff);
+      // });
     }
-    // console.log("thisProjectTeamMembers", thisProjectTeamMembers);
+    console.log("thisProjectTeamMembers", thisProjectTeamMembers);
 
     // Intramural Collaborators (Affiliation)
     var formatedIntCollbsArray = [];
@@ -167,20 +182,32 @@ for (var i = 0; i < originalJSON.length; i++) {
       });
 
       postFormattedIntCollbsArray.map(element => {
+        // console.log("element", element);
         var fullnameIntCollbs = element;
         if (fullnameIntCollbs) {
           var fullnameIntCollbsArray = fullnameIntCollbs.split(" ");
-          var fullFormattedIntCollbsName =
-            fullnameIntCollbsArray[1] + ", " + fullnameIntCollbsArray[0];
-          formatedIntCollbsArray.push(fullFormattedIntCollbsName);
+          var tempString = fullnameIntCollbsArray;
+          // console.log('tempString', tempString);
+          switch (tempString.length) {
+            case 2:
+              // console.log('tempString', tempString);
+              formatedIntCollbsArray.push(tempString[1] + ", " + tempString[0]);
+              break;
+            case 3:
+              // console.log('tempString', tempString);
+              formatedIntCollbsArray.push(tempString[1] + ", " + tempString[0]);
+              break;
+            case 4:
+              // console.log('tempString', tempString);
+              formatedIntCollbsArray.push(tempString[2] + ", " + tempString[0]);
+              break;
+            // default:
+            //   console.log("other");
+          }
         }
       });
-
-      var thisProjectIntCollbs = [];
-      formatedIntCollbsArray.map(name => {
-        var stuff = name.replace(",,", ",");
-        thisProjectIntCollbs.push(stuff);
-      });
+      // console.log('formatedIntCollbsArray', formatedIntCollbsArray);
+      var thisProjectIntCollbs = formatedIntCollbsArray;
     }
     // console.log("thisProjectIntCollbs", thisProjectIntCollbs);
 
